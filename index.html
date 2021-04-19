@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/common.css" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- HEADER/start -->
+      <header class="header">
+        <!-- header bar/start -->
+        <div class="header__bar">
+          <svg class="icon icon--nav">
+            <use xlink:href="img/sprite.svg#icon-bars"></use>
+          </svg>
+          <div class="site-name">Quran.com</div>
+          <svg class="icon icon--mood icon--light">
+            <use xlink:href="img/sprite.svg#icon-lightbulb_outline"></use>
+          </svg>
+          <svg class="icon icon--mood icon--dark bulb--off">
+            <use xlink:href="img/sprite.svg#icon-lightbulb"></use>
+          </svg>
+        </div>
+        <!-- header bar/end -->
+
+        <div class="header__headline">
+          <img
+            class="noble-quran"
+            src="img/nobel-quran.svg"
+            alt="الـقرآن الـكريـم"
+          />
+          <h1>القـرآن الكريـم</h1>
+        </div>
+        <!-- search bar/start -->
+        <div class="header__search">
+          <input class="search" id="search" type="text" placeholder="...بحث" />
+          <label for="search">
+            <svg class="icon icon--search">
+              <use xlink:href="img/sprite.svg#icon-search"></use>
+            </svg>
+          </label>
+        </div>
+        <!-- search bar/end -->
+        <span class="separating-line"></span>
+      </header>
+      <!-- HEADER/end -->
+
+      <!-- CONTENT/start -->
+      <div class="contents">
+        <!-- tap's buttons/start -->
+        <div class="taps-btns">
+          <button class="tap-btn btn--surah btn-active">سورة</button>
+          <button class="tap-btn btn--juz">جزء</button>
+        </div>
+        <!-- tap's buttons/end -->
+        <div class="taps">
+          <!-- tap-surah/start -->
+          <div class="tap tap--surah">
+            <!-- <div class="surah">
+              <div class="surah__num"></div>
+              <div class="surah__name">
+                <span class="name--eng"></span>
+                <span class="name--ar"></span>
+              </div>
+            </div> -->
+          </div>
+          <!-- tap-surah/end + tap juz/start -->
+          <div class="tap tap--juz tap-hidden">
+            <!-- <div class="juz">
+              <div class="juz__surahs">
+                <div class="surah">
+                  <div class="juz__num">1</div>
+                  <div class="surah__name">
+                    <span class="name--eng">Al-Fateha</span>
+                    <span class="name--ar">سورة الفاتحة</span>
+                  </div>
+                  <div class="surah__verses"></div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <!-- tap juz/end -->
+        </div>
+      </div>
+      <!-- CONTENT/end -->
+
+      <footer class="footer"></footer>
+    </div>
+    <script src="JavaScript/gloabal.js"></script>
+    <script src="JavaScript/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700&family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/common.css" />
+    <link rel="stylesheet" href="style/surah.css" />
+    <html>
+      <body>
+        <div class="container">
+          <!--------------- HEADER/start -->
+          <header class="header">
+            <!---------- header bar/start -->
+            <div class="header__bar">
+              <svg class="icon icon--nav">
+                <use xlink:href="img/sprite.svg#icon-bars"></use>
+              </svg>
+              <div class="site-name">Quran.com</div>
+              <div class="mood">
+                <svg class="icon icon--mood icon--light">
+                  <use xlink:href="img/sprite.svg#icon-lightbulb_outline"></use>
+                </svg>
+                <svg class="icon icon--mood icon--dark bulb--off">
+                  <use xlink:href="img/sprite.svg#icon-lightbulb"></use>
+                </svg>
+              </div>
+            </div>
+            <!------------ header bar/end -->
+
+            <!---------- reading bar/start -->
+            <div class="header__reading-bar">
+              <div class="reading-bar__change-page">
+                <svg class="icon icon--page page--next" id="drop">
+                  <use xlink:href="img/sprite.svg#icon-arrow-left"></use>
+                </svg>
+                <div class="pages">(1-2)</div>
+                <svg class="icon icon--page page--prev" id="drop">
+                  <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                </svg>
+              </div>
+              <div class="reading-bar__drob-lists">
+                <div class="list list--surah">
+                  <div class="list__text surah-name">سورة الفاتحة</div>
+                  <svg class="icon icon--dropdown">
+                    <use xlink:href="img/sprite.svg#icon-cheveron-down"></use>
+                  </svg>
+                </div>
+                <div class="list list--verse">
+                  <div class="list__text verse">(1-7) :الآيات</div>
+                  <svg class="icon icon--dropdown">
+                    <use xlink:href="img/sprite.svg#icon-cheveron-down"></use>
+                  </svg>
+                </div>
+                <div class="list list--translate">
+                  <div class="list__text translate">الإنجليزية</div>
+                  <svg class="icon icon--dropdown" id="drop">
+                    <use xlink:href="img/sprite.svg#icon-cheveron-down"></use>
+                  </svg>
+                </div>
+              </div>
+              <!-- search bar/start -->
+              <div class="reading-bar__search">
+                <input
+                  class="search"
+                  id="search"
+                  type="text"
+                  placeholder="...بحث"
+                />
+                <label for="search">
+                  <svg class="icon icon--search">
+                    <use xlink:href="img/sprite.svg#icon-search"></use>
+                  </svg>
+                </label>
+              </div>
+              <!-- search bar/end -->
+            </div>
+            <!---------- reading bar/end -->
+          </header>
+          <!--------------- HEADER/end -->
+
+          <!--------------- SURAH-CONTENTS/start -->
+          <div class="surah-contents">
+            <div class="surah-contents__page page--top">
+              <div class="page-num">-الصفحة -1</div>
+              <div class="page--verses">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </div>
+            </div>
+            <div class="surah-contents__page page--bottom">
+              <div class="page-num">-الصفحة -2</div>
+              <div class="page--verses">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </div>
+            </div>
+          </div>
+          <!--------------- SURAH-CONTENTS/start -->
+        </div>
+        <script src="JavaScript/gloabal.js"></script>
+        <script src="JavaScript/surah.js"></script>
+      </body>
+    </html>
+  </head>
+</html>
