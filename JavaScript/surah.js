@@ -3,6 +3,7 @@
 // SELECT ELEMENTS
 const readingBar = document.querySelector(".header__reading-bar");
 const topPage = document.querySelector(".page--top");
+const surahPages = document.querySelector(".surah-contents");
 // const surahCard = document.querySelector(`${global.surah}`);
 // const juzCard = document.querySelector(global.juz);
 // const surahNum = document.querySelector(global.surahNum);
@@ -13,11 +14,11 @@ const makeItStick = function () {
   if (window.pageYOffset > barOffsetTop) {
     readingBar.classList.add("sticky");
     // add comment
-    topPage.children[0].style.visibility = "hidden";
+    // topPage.children[0].style.visibility = "hidden";
   } else {
     readingBar.classList.remove("sticky");
     // add comment
-    topPage.children[0].style.visibility = "visible";
+    // topPage.children[0].style.visibility = "visible";
   }
 };
 
@@ -35,7 +36,7 @@ const getJson = function (url) {
 };
 
 // GET  CHAPTER'S VERSES BY ITS ID
-const getVersesBypage = function (page) {
+const getVersesBypage = async function (page) {
   const verses = [];
   getJson(
     `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
@@ -49,6 +50,7 @@ const getVersesBypage = function (page) {
     .catch((e) => {
       console.error(e.message);
     });
+  // console.log(verses);
   return verses;
 };
 
@@ -62,15 +64,27 @@ const getChaperByID = async function (id) {
   //   getVersesBypage(pages[0]);
   const pageVerses = [];
   for (let page = pages[0]; page <= pages[1]; page++) {
-    pageVerses.push(getVersesBypage(page));
+    await pageVerses.push(getVersesBypage(page));
   }
+
   console.log(pageVerses);
   return pageVerses;
 };
 
 const renderVerses = async function (id) {
   const verses = await getChaperByID(id);
-  verses.forEach();
+  // console.log(verses);
+  verses.forEach((el, i) => {
+    let html = `<div class="page-num">-الصفحة -${i + 1}</div>
+                <div class="page--verses">${el}</div>`;
+    if ((i + 1) % 2 !== 0) {
+      surahPages.children[0].insertAdjacentHTML("beforeend", html);
+    } else {
+      surahPages.children[1].insertAdjacentHTML("beforeend", html);
+    }
+
+    // console.log(verse);
+  });
 };
 
 // get chapter's id after the surah's card has been clicked
@@ -79,4 +93,5 @@ const queryString = window.location.search;
 const urlPrams = new URLSearchParams(queryString);
 const chapterID = urlPrams.get("id");
 console.log(chapterID);
+renderVerses(20);
 // getChaperByID(20);
