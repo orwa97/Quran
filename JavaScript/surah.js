@@ -129,4 +129,3 @@ const urlPrams = new URLSearchParams(queryString);
 const chapterID = urlPrams.get("id");
 console.log(chapterID);
 renderVerses(chapterID);
-// getChaperByID(20);
