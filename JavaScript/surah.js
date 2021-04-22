@@ -35,56 +35,91 @@ const getJson = function (url) {
   return fetch(url).then((res) => res.json());
 };
 
-// GET  CHAPTER'S VERSES BY ITS ID
-const getVersesBypage = async function (page) {
-  const verses = [];
-  getJson(
-    `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
-  )
-    .then((res) => {
-      const results = res.verses;
-      results.forEach((el) => {
-        verses.push(el.text_uthmani);
-      });
-    })
-    .catch((e) => {
-      console.error(e.message);
-    });
-  // console.log(verses);
-  return verses;
-};
+// let pages;
+// const getChaperByID = async function (id) {
+//   const { chapter } = await getJson(
+//     `https://api.quran.com/api/v4/chapters/${id}`
+//   );
+//   console.log(chapter);
+//   pages = chapter.pages;
+//   console.log(pages);
+//   //   getVersesBypage(pages[0]);
+//   // const pageVerses = [];
+//   // for (let page = pages[0]; page <= pages[1]; page++) {
+//   //   await pageVerses.push(getVersesBypage(page));
+//   // }
 
-const getChaperByID = async function (id) {
+//   return pages;
+// };
+
+// GET  CHAPTER'S VERSES BY ITS ID
+// const getVersesBypage = async function (page) {
+//   const verses = [];
+//   getJson(
+//     `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
+//   )
+//     .then((res) => {
+//       const results = res.verses;
+//       results.forEach((el) => {
+//         verses.push(el.text_uthmani);
+//       });
+//     })
+//     .catch((e) => {
+//       console.error(e.message);
+//     });
+
+//   // getChaperByID()
+//   const pageVerses = [];
+//   for (let page = pages[0]; page <= pages[1]; page++) {
+//     await pageVerses.push(getVersesBypage(page));
+//     console.log(pageVerses);
+//   }
+
+//   console.log(verses);
+//   return verses;
+// };
+
+const renderVerses = async function (id) {
+  // Get pages
   const { chapter } = await getJson(
     `https://api.quran.com/api/v4/chapters/${id}`
   );
   console.log(chapter);
   const pages = chapter.pages;
   console.log(pages);
-  //   getVersesBypage(pages[0]);
-  const pageVerses = [];
+
+  // Get verses by page
+  const verses = [];
+  const versesByPage = [];
   for (let page = pages[0]; page <= pages[1]; page++) {
-    await pageVerses.push(getVersesBypage(page));
+    getJson(
+      `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
+    )
+      .then((res) => {
+        const results = res.verses;
+        results.forEach((el) => {
+          verses.push(el.text_uthmani);
+        });
+      })
+      .catch((e) => {
+        console.error(e.message);
+      });
+    versesByPage.push(verses);
   }
+  console.log(versesByPage);
+  // const verses = await getChaperByID(id);
+  // // console.log(verses);
+  // verses.forEach((el, i) => {
+  //   let html = `<div class="page-num">-الصفحة -${i + 1}</div>
+  //               <div class="page--verses">${el}</div>`;
+  //   if ((i + 1) % 2 !== 0) {
+  //     surahPages.children[0].insertAdjacentHTML("beforeend", html);
+  //   } else {
+  //     surahPages.children[1].insertAdjacentHTML("beforeend", html);
+  //   }
 
-  console.log(pageVerses);
-  return pageVerses;
-};
-
-const renderVerses = async function (id) {
-  const verses = await getChaperByID(id);
-  // console.log(verses);
-  verses.forEach((el, i) => {
-    let html = `<div class="page-num">-الصفحة -${i + 1}</div>
-                <div class="page--verses">${el}</div>`;
-    if ((i + 1) % 2 !== 0) {
-      surahPages.children[0].insertAdjacentHTML("beforeend", html);
-    } else {
-      surahPages.children[1].insertAdjacentHTML("beforeend", html);
-    }
-
-    // console.log(verse);
-  });
+  //   // console.log(verse);
+  // });
 };
 
 // get chapter's id after the surah's card has been clicked
@@ -93,5 +128,5 @@ const queryString = window.location.search;
 const urlPrams = new URLSearchParams(queryString);
 const chapterID = urlPrams.get("id");
 console.log(chapterID);
-renderVerses(20);
+renderVerses(chapterID);
 // getChaperByID(20);
