@@ -9,7 +9,7 @@ const surahPages = document.querySelector(".surah-contents");
 // const surahNum = document.querySelector(global.surahNum);
 
 const barOffsetTop = readingBar.offsetTop;
-
+const svgVerseSepUrl = "img/SVG/versese-separator.svg";
 const makeItStick = function () {
   if (window.pageYOffset > barOffsetTop) {
     readingBar.classList.add("sticky");
@@ -84,41 +84,49 @@ const renderVerses = async function (id) {
   const { chapter } = await getJson(
     `https://api.quran.com/api/v4/chapters/${id}`
   );
-  console.log(chapter);
   const pages = chapter.pages;
-  console.log(pages);
 
   // Get verses by page
-  const verses = [];
   const versesByPage = [];
-  for (let page = pages[0]; page <= pages[1]; page++) {
-    getJson(
-      `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
-    )
-      .then((res) => {
-        const results = res.verses;
-        results.forEach((el) => {
-          verses.push(el.text_uthmani);
-        });
-      })
-      .catch((e) => {
-        console.error(e.message);
-      });
-    versesByPage.push(verses);
-  }
-  console.log(versesByPage);
-  // const verses = await getChaperByID(id);
-  // // console.log(verses);
-  // verses.forEach((el, i) => {
-  //   let html = `<div class="page-num">-الصفحة -${i + 1}</div>
-  //               <div class="page--verses">${el}</div>`;
-  //   if ((i + 1) % 2 !== 0) {
-  //     surahPages.children[0].insertAdjacentHTML("beforeend", html);
-  //   } else {
-  //     surahPages.children[1].insertAdjacentHTML("beforeend", html);
-  //   }
+  const verses = [];
 
-  //   // console.log(verse);
+  for (let page = pages[0]; page <= pages[1]; page++) {
+    versesByPage.push(
+      getJson(
+        `https://api.quran.com/api/v4/quran/verses/uthmani?page_number=${page}`
+      )
+    );
+  }
+  let verseCount = 0;
+  Promise.all(versesByPage).then((responses) => {
+    // console.log(responses);
+    responses.forEach((res, i) => {
+      const versesHtml = [];
+      res.verses.forEach((verse, j) => {
+        const html = `<div class="verses__verse">
+                <p>${verse.text_uthmani}</p>
+                <div class="verse-seperator">
+                <img src=${svgVerseSepUrl} alt="seperator"/><span>${++verseCount}</span>
+                </div>
+                </div>`;
+        versesHtml.push(html);
+      });
+      const html = `<div class="surah-contents__page"><div class="page__page-num">-صفحة -${
+        pages[0] + i
+      }</div><div class="page__verses">${versesHtml.join("")}</div></div>`;
+      surahPages.insertAdjacentHTML("beforeend", html);
+    });
+  });
+
+  // console.log(versesByPage);
+  // const verses = await getChaperByID(id);
+  // console.log(verses);
+  // versesByPage.forEach((el, i) => {
+  // if ((i + 1) % 2 !== 0) {
+  // } else {
+  //   surahPages.children[1].insertAdjacentHTML("beforeend", html);
+  // }
+  // console.log(verse);
   // });
 };
 

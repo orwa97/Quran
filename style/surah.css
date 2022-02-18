@@ -5,6 +5,7 @@ secondary color : #bdc3c7
 sec. color--darker : #abb2b7
 sec. color--liter : #d9dcde
 */
+
 /* ---------HEADER/start */
 .header {
   overflow: auto;
@@ -156,6 +157,7 @@ sec. color--liter : #d9dcde
   align-items: center;
   flex-direction: column;
   width: 100%;
+  padding: 5rem;
 }
 
 .surah-contents__page {
@@ -165,12 +167,13 @@ sec. color--liter : #d9dcde
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  position: relative;
+  /* position: relative; */
   margin: 5rem 0;
+  padding: 0 10rem;
 }
 
-.page-num {
-  width: auto;
+.page__page-num {
+  width: 100%;
   padding: 1rem 1.2rem;
   background-color: #1abc9c;
   /* border-right: 2px solid #abb2b7;
@@ -179,18 +182,55 @@ sec. color--liter : #d9dcde
   text-align: center;
   font-weight: 700;
   color: #f9fefd;
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   top: 0;
-  margin-left: -20rem;
-  border-bottom-right-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
+  /* margin-left: -20rem; */
+  /* border-bottom-right-radius: 1.5rem; */
+  /* border-top-right-radius: 1.5rem; */
 }
 
-.page--verses {
-  font-size: 2.7rem;
-  text-align: justify;
-  line-height: 4rem;
+.page__verses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+}
+.verses__verse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  direction: rtl;
+  /* flex-wrap: wrap; */
+}
+
+.verses__verse p {
+  font-size: 100%;
+  text-align: center;
+  margin: 2rem 0;
+  /* padding: 0 0.5rem; */
+}
+.verse-seperator {
+  position: relative;
+}
+.verse-seperator span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  font-size: 80%;
+  right: 0;
+  top: 1.5rem;
+}
+
+.verse-seperator img {
+  width: 4rem;
+  height: auto;
+  fill: #fff;
 }
 
 /* ---------SURAH CONTENTS/end */
