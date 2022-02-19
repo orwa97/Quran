@@ -11,6 +11,7 @@ const root = document.querySelector(":root");
 let surahCard, juzSurahCard;
 
 const clickedOnSurahCard = function () {
+  console.log("clicked");
   // get all surahCards -->
   surahCard = document.querySelectorAll(".surah");
   surahCard.forEach((el) =>
@@ -20,7 +21,7 @@ const clickedOnSurahCard = function () {
       let surahID = el.children[0].textContent;
       console.log(surahID);
       // --> relocat the user to the next page along with the surah's id
-      window.location.href = `http://127.0.0.1:5500/surah.html?id=${surahID}`;
+      window.location.href = `/surah.html?id=${surahID}`;
     })
   );
 };
