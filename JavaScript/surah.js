@@ -52,7 +52,6 @@ const renderVerses = async function (id) {
   }
   let verseCount = 0;
   Promise.all(versesByPage).then((responses) => {
-    // console.log(responses);
     responses.forEach((res, i) => {
       const versesHtml = [];
       res.verses.forEach((verse, j) => {
@@ -73,16 +72,6 @@ const renderVerses = async function (id) {
     "afterbegin",
     "<p class=surah-contents__basmalah> بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ</p>"
   );
-  // console.log(versesByPage);
-  // const verses = await getChaperByID(id);
-  // console.log(verses);
-  // versesByPage.forEach((el, i) => {
-  // if ((i + 1) % 2 !== 0) {
-  // } else {
-  //   surahPages.children[1].insertAdjacentHTML("beforeend", html);
-  // }
-  // console.log(verse);
-  // });
 };
 
 // get chapter's id after the surah's card has been clicked

@@ -11,7 +11,6 @@ const root = document.querySelector(":root");
 let surahCard, juzSurahCard;
 
 const clickedOnSurahCard = function () {
-  console.log("clicked");
   // get all surahCards -->
   surahCard = document.querySelectorAll(".surah");
   surahCard.forEach((el) =>
@@ -19,7 +18,6 @@ const clickedOnSurahCard = function () {
     el.addEventListener("click", function () {
       // --> get it's ID
       let surahID = el.children[0].textContent;
-      console.log(surahID);
       // --> relocat the user to the next page along with the surah's id
       window.location.href = `/surah.html?id=${surahID}`;
     })
@@ -56,7 +54,6 @@ const getJuz = async function () {
   const { juzs } = await getJson("https://api.quran.com/api/v4/juzs");
   juzs.forEach((juz, i) => {
     let chaptersIdsVers = Object.entries(juz.verse_mapping);
-    // console.log(chaptersIdsVers);
     // ----------GET JUZ SURAHS
     const getSurah = function () {
       let html = "";
