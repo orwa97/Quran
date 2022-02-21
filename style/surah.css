@@ -52,23 +52,28 @@ sec. color--liter : #d9dcde
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 35%;
   /* position: absolute;
   left: 37%; */
   /* margin-left: 10rem; */
 }
 
 .search {
-  width: 55rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
   font-size: 1.8rem;
   padding: 0.45rem;
+  padding-right: 3.4rem;
   border-radius: 1.6rem;
   background-color: #f9fefd;
   border: 0.1rem solid #abb2b7;
+  direction: rtl;
 }
 
 .search::placeholder {
+  font-size: 1.5rem;
   color: #abb2b7;
-  padding-left: 46rem;
 }
 
 .icon--search {

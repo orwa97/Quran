@@ -7,70 +7,7 @@ sec. color--darker : #abb2b7
 :root {
   --pseudo-left: 0.1rem;
 }
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-html {
-  font-family: "Lato", "Changa", Arial, Helvetica, sans-serif;
-  font-size: 62.5%;
-  color: rgb(44, 44, 44);
-}
-
-body {
-  background-color: #f9fefd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* __________ HEADER/start __________ */
-/* .container,
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-
-.header__bar {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 5rem;
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.123);
-}
-.icon {
-  width: 3rem;
-  height: 3rem;
-  fill: #bdc3c7;
-  display: inline-block;
-}
-.icon--bulb {
-  position: absolute;
-  right: 0;
-  margin-right: 20rem;
-}
-
-.icon--nav {
-  margin-left: 20rem;
-}
-
-.icon--bulb:hover,
-.icon--nav:hover {
-  fill: #1abc9c;
-  cursor: pointer;
-}
-.site-name {
-  margin-left: 1.5rem;
-  font-size: 3.4rem;
-  font-weight: 700;
-  color: #1abc9c;
-} */
 .header__bar {
   position: relative;
 }
@@ -105,43 +42,6 @@ h1 {
   color: #1abc9c;
   margin-top: 2rem;
 }
-/* .header__search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  position: relative;
-}
-
-.search {
-  width: 100rem;
-  font-size: 2rem;
-  padding: 1rem;
-  border: 1px solid #bdc3c7;
-  border-radius: 0.5rem;
-  color: rgb(70, 70, 70);
-  font-family: "Lato", "Changa", Arial, Helvetica, sans-serif;
-}
-
-.search:focus {
-  outline: none;
-}
-
-.search::placeholder {
-  color: #bdc3c7;
-  padding-left: 88rem;
-}
-.icon--search {
-  width: 4.7rem;
-  height: 4.7rem;
-  margin-left: -4.7rem;
-  border-bottom-right-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  margin-top: 0.2rem;
-  padding: 0.5rem;
-  background-color: #1abc9c;
-  fill: #f9fefd;
-} */
 
 .header__search {
   margin-top: 2rem;
@@ -179,8 +79,6 @@ h1 {
 }
 .taps-btns {
   width: 75%;
-  /* height: 3.5rem; */
-  /* border-bottom: 1px solid #bdc3c7; */
 }
 
 .tap-btn {
@@ -195,7 +93,6 @@ h1 {
   font-family: inherit;
   text-align: center;
   margin-bottom: -0.1rem;
-  /* background-color: red; */
 }
 
 .tap-btn:hover {
@@ -213,7 +110,6 @@ h1 {
 
 .taps {
   width: 75%;
-  /* border-top: 1px solid #bdc3c7; */
 }
 
 .tap {
@@ -226,7 +122,6 @@ h1 {
   justify-content: center;
   border-top: 0.1rem solid #bdc3c7;
   position: relative;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.151); */
 }
 
 .tap::before {
@@ -244,9 +139,6 @@ h1 {
   display: none;
 }
 
-/* .tap-active {
-  background-color: #9ff2e1;
-} */
 /* ---------- SURAH TAP/start ---------- */
 .surah,
 .juz {
@@ -360,10 +252,6 @@ h1 {
 .juz .surah {
   margin: 0;
 }
-
-/* .juz__num {
-  margin-bottom: 0.5rem;
-} */
 
 .surah__verses {
   font-size: 1.7rem;
